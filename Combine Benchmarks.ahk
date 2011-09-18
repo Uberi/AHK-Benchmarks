@@ -3,14 +3,19 @@
 FileSelectFile, File1, 11, %A_ScriptDir%, Select the first benchmark., *.html
 If ErrorLevel
  ExitApp
-File1Version = AHK v1.0.48.05
+File1Version := "AHK v1.0.48.05"
+If RegExMatch(File1,"S)\d+\.\d+\.\d+\.\d+",Temp1)
+ File1Version := "AHK v" . Temp1
 InputBox, File1Version, AutoHotkey version, Input the version of AutoHotkey this benchmark was run on:,, 380, 120,,,,, %File1Version%
 If ErrorLevel
  ExitApp
+
 FileSelectFile, File2, 11, %A_ScriptDir%, Select the second benchmark., *.html
 If ErrorLevel
  ExitApp
-File2Version = AHK_L v1.1.00.00
+File2Version := "AHK v1.1.00.00"
+If RegExMatch(File2,"S)\d+\.\d+\.\d+\.\d+",Temp1)
+ File2Version := "AHK v" . Temp1
 InputBox, File2Version, AutoHotkey version, Input the version of AutoHotkey this benchmark was run on:,, 380, 120,,,,, %File2Version%
 If ErrorLevel
  ExitApp

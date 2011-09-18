@@ -1,8 +1,8 @@
 #NoEnv
 
-WaitPeriod = 500
-DefaultIterations = 1000000 ;between 10000 and 5000000 will yield good results.
-OutputStyle = Desaturated
+WaitPeriod := 500
+DefaultIterations := 1000000 ;between 10000 and 5000000 will yield good results.
+OutputStyle := "Desaturated"
 
 SetBatchLines, -1
 Process, Priority,, Realtime

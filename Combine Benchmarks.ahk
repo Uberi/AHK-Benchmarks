@@ -39,7 +39,7 @@ While, (FoundPos := RegExMatch(File1,"S)(<tr(?: class=""alt"")?><td>[^<]+</td><t
 }
 Result .= SubStr(File1,FoundPos1)
 Result := RegExReplace(Result,"S)<th>[^<]+</th><th>[^<]+</th>\K<th>[^<]+</th></tr>","<th>" . File1Version . "</th><th>" . File2Version . "</th></tr>")
-StringReplace, Result, Result, </style>, em{color:#030303;}</style>, All ;insert the extra style rule for the "em" tag
+StringReplace, Result, Result, </style>, em{font-weight:bold;}</style>, All ;insert the extra style rule for the "em" tag
 FileSelectFile, FileName, S16, Combined Benchmarks.html, Select a save path for the combined benchmark., *.html
 If !ErrorLevel
 {

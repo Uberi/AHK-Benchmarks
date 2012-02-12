@@ -524,7 +524,10 @@ Return
 GetSystemInfo()
 {
     Length := RunToVar(Data,"cmd /c ""SystemInfo /fo CSV""")
-    VarSetCapacity(Data,-1), Data := SubStr(Data,1,Length)
+    If A_IsUnicode
+        StrGetFunc := "StrGet", Data := %StrGetFunc%(&Data,Length,"CP0")
+    Else
+        VarSetCapacity(Data,-1), Data := SubStr(Data,1,Length)
 
     StringSplit, Temp, Data, `n
     Fields := "OS Name,OS Version,OS Configuration,OS Build Type,System Manufacturer,System Model,System Type,Processor(s),BIOS Version,Total Physical Memory,Available Physical Memory,Virtual Memory: Max Size,Virtual Memory: Available,Virtual Memory: In Use"
